@@ -1,0 +1,29 @@
+<h1>Listing countries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Flat picture</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @countries.each do |country| %>
+      <tr>
+        <td><%= country.name %></td>
+        <td><%= country.description %></td>
+        <td><%= country.picture %></td>
+        <td><%= button_to 'Show', country, method: :get %></td>
+        <td><%= button_to 'Edit', edit_country_path(country), method: :get %></td>
+        <td><%= link_to 'Destroy', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= button_to 'Add new Country', new_country_path, method: :get %>
